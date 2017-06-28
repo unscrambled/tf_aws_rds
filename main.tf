@@ -40,7 +40,8 @@ resource "aws_db_instance" "main_rds_instance" {
   copy_tags_to_snapshot = "${var.copy_tags_to_snapshot}"
 
   backup_retention_period = "${var.backup_retention_period}"
-  backup_window           = "${var.backup_window}"
+
+  #backup_window           = "${var.backup_window}"
 
   tags = "${merge(var.tags, map("Name", format("%s", var.rds_instance_identifier)))}"
 }
