@@ -87,10 +87,10 @@ resource "aws_security_group_rule" "allow_db_access" {
 
   count = "${length(var.allowed_security_groups)}"
 
-  from_port             = "${var.database_port}"
-  to_port               = "${var.database_port}"
-  protocol              = "tcp"
-  source_security_group = "${var.allowed_security_groups[count.index]}"
+  from_port                = "${var.database_port}"
+  to_port                  = "${var.database_port}"
+  protocol                 = "tcp"
+  source_security_group_id = "${var.allowed_security_groups[count.index]}"
 
   security_group_id = "${aws_security_group.main_db_access.id}"
 }
